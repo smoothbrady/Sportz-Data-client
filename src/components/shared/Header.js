@@ -7,7 +7,7 @@ const linkStyle = {
     textDecoration: 'none'
 }
 const authenticatedOptions = (
-	<>
+	<div className=''>
 		<Nav.Item>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -18,7 +18,38 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Item>
-	</>
+		<Nav.Item>
+			<Link to='nba' style={linkStyle}>
+				NBA
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='nfl' style={linkStyle}>
+				NFL
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='mlb' style={linkStyle}>
+				MLB
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='nhl' style={linkStyle}>
+				NHL
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='ncaaf' style={linkStyle}>
+				NCAAF
+			</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='ncaab' style={linkStyle}>
+				NCAAB
+			</Link>
+		</Nav.Item>
+	</div>
+
 )
 
 const unauthenticatedOptions = (
@@ -46,7 +77,7 @@ const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                react-auth-template
+                Sportz Data
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
