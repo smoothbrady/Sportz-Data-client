@@ -2,13 +2,13 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
-import '../../Dashboard.css'
+import NavDropdown from 'react-bootstrap/NavDropdown';
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
-	<div className='sidebar'>
+	<>
 		<Nav.Item>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -19,59 +19,36 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
-			<Link to='nba' style={linkStyle}>
-				NBA
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='nfl' style={linkStyle}>
-				NFL
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='mlb' style={linkStyle}>
-				MLB
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='nhl' style={linkStyle}>
-				NHL
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='ncaaf' style={linkStyle}>
-				NCAAF
-			</Link>
-		</Nav.Item>
-		<Nav.Item>
-			<Link to='ncaab' style={linkStyle}>
-				NCAAB
-			</Link>
-		</Nav.Item>
-	</div>
-
+		<NavDropdown title="Dropdown" id="basic-nav-dropdown">
+			<NavDropdown.Item href="#action/3.1">NFL</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.2">NBA</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.3">MLB</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.4">NHL</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.5">NCAAF</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.6">NCAAB</NavDropdown.Item>
+		</NavDropdown>
+	</>
 )
 
 const unauthenticatedOptions = (
-	<div>
+	<>
         <Nav.Item>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
         <Nav.Item>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
-	</div>
+	</>
 )
 
 const alwaysOptions = (
-	<div>
+	<>
 		<Nav.Link>
 			<Link to='/' style={linkStyle}>
 				Home
 			</Link>
 		</Nav.Link>
-	</div>
+	</>
 )
 
 const Header = ({ user }) => (
