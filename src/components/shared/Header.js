@@ -2,12 +2,13 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import '../../Dashboard.css'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
-	<div className=''>
+	<div className='sidebar'>
 		<Nav.Item>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -53,24 +54,24 @@ const authenticatedOptions = (
 )
 
 const unauthenticatedOptions = (
-	<>
+	<div>
         <Nav.Item>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
         <Nav.Item>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
-	</>
+	</div>
 )
 
 const alwaysOptions = (
-	<>
+	<div>
 		<Nav.Link>
 			<Link to='/' style={linkStyle}>
 				Home
 			</Link>
 		</Nav.Link>
-	</>
+	</div>
 )
 
 const Header = ({ user }) => (
