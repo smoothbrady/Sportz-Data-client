@@ -2,31 +2,50 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import NavDropdown from 'react-bootstrap/NavDropdown';
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'underline',
+	padding: '1',
+}
+const navStyle = {
+	display: 'flex',
+	justifyContent: 'flex-end',
+	alignItems: 'center',
+	width: '500px',
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Item>
+		<NavDropdown title="Dropdown" id="basic-nav-dropdown">
+			<NavDropdown.Item href="#action/3.1">NFL</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.2">NBA</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.3">MLB</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.4">NHL</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.5">NCAAF</NavDropdown.Item>
+			<NavDropdown.Item href="#action/3.6">NCAAB</NavDropdown.Item>
+		</NavDropdown>
+		<div style={navStyle}>
+		<Nav.Item className='ms-4'>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className='ms-4'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
 		</Nav.Item>
+		</div>
+		
 	</>
 )
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Item>
+        <Nav.Item className='ms-4'>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
-        <Nav.Item>
+        <Nav.Item className='ms-4'>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
 	</>
@@ -34,7 +53,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
 	<>
-		<Nav.Link>
+		<Nav.Link className='ms-4'>
 			<Link to='/' style={linkStyle}>
 				Home
 			</Link>
@@ -46,7 +65,7 @@ const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                react-auth-template
+                Sportz Data
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
