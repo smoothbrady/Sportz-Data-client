@@ -3,20 +3,21 @@ import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { teamShow } from '../../api/team';
 
-function team() {
+function Team() {
     useEffect(() => {
-        teamShow(user)
+        console.log('useffect is running')
+        teamShow()
         .then(res => {
-            setTeam(res.data.team)
+            console.log(res.data)
+            // setTeam(res.data.team)
         })
         .catch((error) => {
-            msgAlert({
-                heading: 'Failure',
-                message: 'Show Team Failure' + error,
-                variant: 'danger'
+            // msgAlert({
+            //     heading: 'Failure',
+            //     message: 'Show Team Failure' + error,
+            //     variant: 'danger'
             })
         })
-    })
     return (
         <Card style={{ width: '19rem' }}>
             <Card.Img variant='top'
@@ -30,8 +31,8 @@ function team() {
         </Card.Body>
       </Card>
     );
-  }
+}
 
 
 
-  export default team;
+  export default Team;

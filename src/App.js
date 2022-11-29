@@ -18,6 +18,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [teams, setTeams] = useState(null)
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -43,7 +44,7 @@ const App = () => {
 
 		return (
 			<Fragment>
-				<Header user={user} />
+				<Header user={user} teams={teams} setTeams={setTeams} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route
