@@ -12,6 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import TeamShow from './components/Team/TeamShow'
 
 const App = () => {
 
@@ -68,7 +69,37 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
-				</Routes>
+		  <Route
+			path='/nfl/teams'
+			element={
+					<TeamShow msgAlert={msgAlert} user={user} />
+			}
+			/>
+			<Route
+			path='/nba/teams'
+			element={
+					<TeamShow msgAlert={msgAlert} user={user} />
+			}
+			/>
+			<Route
+			path='/nhl/teams'
+			element={
+					<TeamShow msgAlert={msgAlert} user={user} />
+			}
+			/>
+			<Route
+			path='/ncaaf/teams'
+			element={
+					<TeamShow msgAlert={msgAlert} user={user} />
+			}
+			/>
+			<Route
+			path='/ncaab/teams'
+			element={
+					<TeamShow msgAlert={msgAlert} user={user} />
+			}
+			/>
+			</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
 						key={msgAlert.id}
@@ -77,10 +108,11 @@ const App = () => {
 						message={msgAlert.message}
 						id={msgAlert.id}
 						deleteAlert={deleteAlert}
-					/>
+					/>	
 				))}
 			</Fragment>
 		)
 }
+
 
 export default App
