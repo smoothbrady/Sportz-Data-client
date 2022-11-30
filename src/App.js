@@ -19,6 +19,11 @@ import NhlShow from './components/Sport/NhlShow'
 import NcaafShow from './components/Sport/NcaafShow'
 import NcaabShow from './components/Sport/NcaabShow'
 import NflTeam from './components/Team/NflTeam'
+import NbaTeam from './components/Team/NbaTeam'
+import MlbTeam from './components/Team/MlbTeam'
+import NhlTeam from './components/Team/NhlTeam'
+import NcaafTeam from './components/Team/NcaafTeam'
+import NcaabTeam from './components/Team/NcaabTeam'
 
 const App = () => {
 
@@ -89,12 +94,26 @@ const App = () => {
 							<NflShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 				/>
+								<Route
+					path='/nba/teams'
+					element={
+						
+							<NbaTeam msgAlert={msgAlert} user={user} />
+						}
+				/>
 				<Route
 					path='/nba'
 					element={
 						<RequireAuth user={user}>
 							<NbaShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+				/>
+								<Route
+					path='/mlb/teams'
+					element={
+						
+							<MlbTeam msgAlert={msgAlert} user={user} />
+						}
 				/>
 				<Route
 					path='/mlb'
@@ -104,11 +123,25 @@ const App = () => {
 						</RequireAuth>}
 				/>
 				<Route
+					path='/nhl/teams'
+					element={
+						
+							<NhlTeam msgAlert={msgAlert} user={user} />
+						}
+				/>
+				<Route
 					path='/nhl'
 					element={
 						<RequireAuth user={user}>
 							<NhlShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+				/>
+								<Route
+					path='/ncaaf/teams'
+					element={
+						
+							<NcaafTeam msgAlert={msgAlert} user={user} />
+						}
 				/>
 			<Route
 					path='/ncaaf'
@@ -116,6 +149,13 @@ const App = () => {
 						<RequireAuth user={user}>
 							<NcaafShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+				/>
+								<Route
+					path='/ncaaf/teams'
+					element={
+						
+							<NcaafTeam msgAlert={msgAlert} user={user} />
+						}
 				/>
 				<Route
 					path='/ncaab'

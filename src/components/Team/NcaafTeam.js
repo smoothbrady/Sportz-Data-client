@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
-import { nbaTeam } from "../../api/team"
+import { ncaafTeam } from "../../api/team"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -50,15 +50,15 @@ const spinnerCSS = {
     marginLeft: '15%',
 }
 
-const NbaTeam = (props) => {
+const NcaafTeam = (props) => {
 
-    const [nba, setNba] = useState(null)
+    const [ncaaf, setNcaaf] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nbaTeam(user)
+        ncaafTeam(user)
             .then((res) => {
-                setNba(
+                setNcaaf(
                      res.data.results
                 )
                 console.log(res.data)
@@ -72,7 +72,7 @@ const NbaTeam = (props) => {
             })
     }, [])
 
-    if (!nba) {
+    if (!ncaaf) {
         return (
             <>
                 <div style={backgroundCSS}>
@@ -96,11 +96,11 @@ const NbaTeam = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{nba.conference}</h4>
+                                    <h4 style={boldText}>{ncaaf.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nba.map((result) => (
+                                        {ncaaf.map((result) => (
                                             <div>
                                                 <small><span style={boldText}>Team:</span> {result.team}</small>
                                                 <small><span style={boldText}>Conference:</span> {result.conference}</small>
@@ -118,4 +118,4 @@ const NbaTeam = (props) => {
     )
 }
 
-export default NbaTeam
+export default NcaafTeam
