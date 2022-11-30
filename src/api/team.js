@@ -26,9 +26,9 @@ export const mlbTeam= (user) => {
     return axios ({
         method: 'GET', 
         url: apiUrl + '/mlb/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
 
