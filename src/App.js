@@ -15,6 +15,9 @@ import ChangePassword from './components/auth/ChangePassword'
 import NflShow from './components/Sport/NflShow'
 import NbaShow from './components/Sport/NbaShow'
 import MlbShow from './components/Sport/MlbShow'
+import NhlShow from './components/Sport/NhlShow'
+import NcaafShow from './components/Sport/NcaafShow'
+import NcaabShow from './components/Sport/NcaabShow'
 
 const App = () => {
 
@@ -90,6 +93,27 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<MlbShow msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+				<Route
+					path='/nhl'
+					element={
+						<RequireAuth user={user}>
+							<NhlShow msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+			<Route
+					path='/ncaaf'
+					element={
+						<RequireAuth user={user}>
+							<NcaafShow msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+				<Route
+					path='/ncaab'
+					element={
+						<RequireAuth user={user}>
+							<NcaabShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 				/>
 			</Routes>
