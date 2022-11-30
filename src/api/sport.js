@@ -10,3 +10,13 @@ export const nflShow = (user) => {
         },
     })
 }
+
+export const nbaShow = (user) => {
+    return axios({
+        method: 'GET',
+        url: apiUrl + '/nba',
+        headers: {
+            Authorization: `Token token=${user.token}`,
+        },
+    })
+}

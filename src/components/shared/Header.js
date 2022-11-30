@@ -17,12 +17,12 @@ const navStyle = {
 const authenticatedOptions = (
 	<>
 		<NavDropdown title="Dropdown" id="basic-nav-dropdown">
-			<NavDropdown.Item href="nfl">NFL</NavDropdown.Item>
-			<NavDropdown.Item href="nba">NBA</NavDropdown.Item>
-			<NavDropdown.Item href="mlb">MLB</NavDropdown.Item>
-			<NavDropdown.Item href="nhl">NHL</NavDropdown.Item>
-			<NavDropdown.Item href="ncaaf">NCAAF</NavDropdown.Item>
-			<NavDropdown.Item href="ncaab">NCAAB</NavDropdown.Item>
+			<Link to="nfl">NFL</Link>
+			<Link to="nba">NBA</Link>
+			<Link to="mlb">MLB</Link>
+			<Link to="nhl">NHL</Link>
+			<Link to="ncaaf">NCAAF</Link>
+			<Link to="ncaab">NCAAB</Link>
 		</NavDropdown>
 		<div style={navStyle}>
 		<Nav.Item className='ms-4'>

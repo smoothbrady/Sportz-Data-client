@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nflShow } from "../api/sport"
+import { nbaShow } from "../api/sport"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
 
@@ -51,15 +51,15 @@ const spinnerCSS = {
 }
 
 
-const NflShow = (props) => {
+const NbaShow = (props) => {
 
-    const [nfl, setNfl] = useState(null)
+    const [nba, setNba] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nflShow(user)
+        nbaShow(user)
             .then((res) => {
-                setNfl(
+                setNba(
                      res.data.results
                 )
             })
