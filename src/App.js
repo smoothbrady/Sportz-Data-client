@@ -22,6 +22,7 @@ import NflTeam from './components/Team/NflTeam'
 import NbaTeam from './components/Team/NbaTeam'
 import MlbTeam from './components/Team/MlbTeam'
 import NhlTeam from './components/Team/NhlTeam'
+import NcaafTeam from './components/Team/NcaafTeam'
 
 const App = () => {
 
@@ -133,6 +134,13 @@ const App = () => {
 						<RequireAuth user={user}>
 							<NhlShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+				/>
+								<Route
+					path='/ncaaf/teams'
+					element={
+						
+							<NcaafTeam msgAlert={msgAlert} user={user} />
+						}
 				/>
 			<Route
 					path='/ncaaf'
