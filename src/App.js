@@ -2,6 +2,7 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import NflTeam from './Team/NflTeam'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -75,6 +76,13 @@ const App = () => {
 						</RequireAuth>}
 				/>
 				<Route
+					path='/nfl/teams'
+					element={
+						<RequireAuth user={user}>
+							<NflTeam msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+							<Route
 					path='/nfl'
 					element={
 						<RequireAuth user={user}>
