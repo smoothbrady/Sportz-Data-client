@@ -90,19 +90,19 @@ const App = () => {
 							<NflShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 				/>
+								<Route
+					path='/nba/teams'
+					element={
+						
+							<NbaTeam msgAlert={msgAlert} user={user} />
+						}
+				/>
 				<Route
 					path='/nba'
 					element={
 						<RequireAuth user={user}>
 							<NbaShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
-				/>
-				<Route
-					path='/nba/teams'
-					element={
-						
-							<NbaTeam msgAlert={msgAlert} user={user} />
-						}
 				/>
 				<Route
 					path='/mlb'

@@ -16,9 +16,9 @@ export const nbaTeam = (user) => {
     return axios ({
         method: 'GET', 
         url: apiUrl + '/nba/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
 
