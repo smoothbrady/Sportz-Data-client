@@ -2,7 +2,6 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import NflTeam from './Team/NflTeam'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -19,6 +18,7 @@ import MlbShow from './components/Sport/MlbShow'
 import NhlShow from './components/Sport/NhlShow'
 import NcaafShow from './components/Sport/NcaafShow'
 import NcaabShow from './components/Sport/NcaabShow'
+import NflTeam from './components/Team/NflTeam'
 
 const App = () => {
 
@@ -78,9 +78,9 @@ const App = () => {
 				<Route
 					path='/nfl/teams'
 					element={
-						<RequireAuth user={user}>
+						
 							<NflTeam msgAlert={msgAlert} user={user} />
-						</RequireAuth>}
+						}
 				/>
 							<Route
 					path='/nfl'

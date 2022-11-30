@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nflTeam } from "../api/team"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
+import { nflTeam } from "../../api/team"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',

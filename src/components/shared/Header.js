@@ -17,7 +17,7 @@ const navStyle = {
 const authenticatedOptions = (
 	<>
 		<NavDropdown title="Dropdown" id="basic-nav-dropdown">
-			<Link to="nfl/teams">NFL</Link>
+			<Link to="nfl">NFL</Link>
 			<Link to="nba">NBA</Link>
 			<Link to="mlb">MLB</Link>
 			<Link to="nhl">NHL</Link>

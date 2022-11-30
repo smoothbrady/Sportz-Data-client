@@ -2,12 +2,13 @@ import axios from "axios"
 import apiUrl from "../apiConfig"
 
 export const nflTeam = (user) => {
+    console.log(user)
     return axios ({
         method: 'GET', 
         url: apiUrl + '/nfl/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
 
