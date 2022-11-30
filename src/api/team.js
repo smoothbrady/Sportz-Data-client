@@ -36,9 +36,9 @@ export const nhlTeam = (user) => {
     return axios ({
         method: 'GET', 
         url: apiUrl + '/nhl/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
 
@@ -46,9 +46,9 @@ export const ncaafTeam= (user) => {
     return axios ({
         method: 'GET', 
         url: apiUrl + '/ncaaf/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
 
@@ -56,8 +56,8 @@ export const ncaabTeam = (user) => {
     return axios ({
         method: 'GET', 
         url: apiUrl + '/ncaab/teams',
-        headers: {
-            Authorization: `Token token=${user.token}`,
-        },
+        // headers: {
+        //     Authorization: `Token token=${user.token}`,
+        // },
     })
 }
