@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nbaShow } from "../api/sport"
+import { nbaShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
 
@@ -60,8 +60,9 @@ const NbaShow = (props) => {
         nbaShow(user)
             .then((res) => {
                 setNba(
-                     res.data.results
+                    res.data.results
                 )
+                console.log(res.data.results)
             })
             .catch((error) => {
                 msgAlert({
@@ -72,7 +73,7 @@ const NbaShow = (props) => {
             })
     }, [])
 
-    if (!nfl) {
+    if (!nba) {
         return (
             <>
                 <div style={backgroundCSS}>
@@ -96,11 +97,11 @@ const NbaShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{nfl.conference}</h4>
+                                    <h4 style={boldText}>{nba.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nfl.map((result) => (
+                                        {nba.map((result) => (
                                             <div>
                                                 <small><span style={boldText}>Conference:</span> {result.conference}</small>
                                                 <small><span style={boldText}>Division:</span> {result.division}</small>
@@ -118,4 +119,4 @@ const NbaShow = (props) => {
     )
 }
 
-export default NflShow
+export default NbaShow

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nflShow } from "../api/sport"
+import { mlbShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
 
@@ -51,17 +51,18 @@ const spinnerCSS = {
 }
 
 
-const NflShow = (props) => {
+const MlbShow = (props) => {
 
-    const [nfl, setNfl] = useState(null)
+    const [mlb, setMlb] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nflShow(user)
+        mlbShow(user)
             .then((res) => {
-                setNfl(
-                     res.data.results
+                setMlb(
+                    res.data.results
                 )
+                console.log(res.data.results)
             })
             .catch((error) => {
                 msgAlert({
@@ -72,7 +73,7 @@ const NflShow = (props) => {
             })
     }, [])
 
-    if (!nfl) {
+    if (!mlb) {
         return (
             <>
                 <div style={backgroundCSS}>
@@ -96,11 +97,11 @@ const NflShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{nfl.conference}</h4>
+                                    <h4 style={boldText}>{mlb.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nfl.map((result) => (
+                                        {mlb.map((result) => (
                                             <div>
                                                 <small><span style={boldText}>Conference:</span> {result.conference}</small>
                                                 <small><span style={boldText}>Division:</span> {result.division}</small>
@@ -118,4 +119,4 @@ const NflShow = (props) => {
     )
 }
 
-export default NflShow
+export default MlbShow

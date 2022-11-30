@@ -12,7 +12,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import NflShow from './components/NflShow'
+import NflShow from './components/Sport/NflShow'
+import NbaShow from './components/Sport/NbaShow'
+import MlbShow from './components/Sport/MlbShow'
 
 const App = () => {
 
@@ -74,6 +76,20 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<NflShow msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+				<Route
+					path='/nba'
+					element={
+						<RequireAuth user={user}>
+							<NbaShow msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+				/>
+				<Route
+					path='/mlb'
+					element={
+						<RequireAuth user={user}>
+							<MlbShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 				/>
 			</Routes>
