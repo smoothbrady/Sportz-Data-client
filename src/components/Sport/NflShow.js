@@ -60,7 +60,7 @@ const NflShow = (props) => {
         nflShow(user)
             .then((res) => {
                 setNfl(
-                     res.data.results
+                    res.data.results
                 )
             })
             .catch((error) => {

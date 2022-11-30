@@ -61,3 +61,33 @@ export const ncaabTeam = (user) => {
         },
     })
 }
+
+export const localTeamShow = (user, apiId) => {
+    return axios({
+        method: 'GET',
+        url: apiUrl + '/teams/bookmarks' + apiId
+    })
+}
+
+export const teamUpdate = (data, user, id) => {
+    return axios({
+        method: 'PATCH',
+        url: apiUrl + '/teams/bookmark' + id,
+        data: {
+            game: data,
+        },
+        headers: {
+            Authorization: `Token token=${user.token}`,
+        },
+    })
+}
+
+export const teamDelete = (user, id) => {
+    return axios({
+        method: 'DELETE',
+        url: apirUrl + '/teams/' + id,
+        headers: {
+            Authorization: `Token token=${user.token}`
+        }
+    })
+}
