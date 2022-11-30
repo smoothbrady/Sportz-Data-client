@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nbaShow } from "../api/sport"
+import { nflTeam } from "../api/team"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
 
@@ -50,23 +50,23 @@ const spinnerCSS = {
     marginLeft: '15%',
 }
 
+const NflTeam = (props) => {
 
-const NbaShow = (props) => {
-
-    const [nba, setNba] = useState(null)
+    const [nfl, setNfl] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nbaShow(user)
+        nflTeam(user)
             .then((res) => {
-                setNba(
+                setNfl(
                      res.data.results
                 )
+                console.log(res.data)
             })
             .catch((error) => {
                 msgAlert({
                     heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
+                    message: 'Failure to show teams ' + error,
                     variant: 'danger'
                 })
             })
@@ -102,9 +102,9 @@ const NbaShow = (props) => {
                                     <Card.Text>
                                         {nfl.map((result) => (
                                             <div>
+                                                <small><span style={boldText}>Team:</span> {result.team}</small>
                                                 <small><span style={boldText}>Conference:</span> {result.conference}</small>
                                                 <small><span style={boldText}>Division:</span> {result.division}</small>
-                                                <small><span style={boldText}>League:</span> {result.league}</small>
                                             </div>
                                         ))}
                                     </Card.Text>
@@ -118,4 +118,4 @@ const NbaShow = (props) => {
     )
 }
 
-export default NbaShow
+export default NflTeam
