@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nhlShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
-import Spinner from "react-bootstrap/Spinner"
-import NhlGameShow from "../game/NhlGameShow"
+import { ncaabGame } from "../../api/game"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -14,6 +12,7 @@ const backgroundCSS = {
 }
 
 const cardCSS = {
+    marginLeft: '80px',
     marginTop: '20px',
     marginBottom: '20px',
     width: '40rem',
@@ -38,32 +37,17 @@ const boldText = {
     fontWeight: 'bold'
 }
 
-const findingResult = {
-    display: 'flex',
-    justifyContent: 'center',
-    fontWeight: 'bold',
-    marginTop: '30%',
-    fontSize: '200%',
-    color: 'rgb(241, 50, 50)'
-}
+const NcaabGameShow = (props) => {
 
-const spinnerCSS = {
-    marginLeft: '15%',
-}
-
-
-const NhlShow = (props) => {
-
-    const [nhl, setNhl] = useState(null)
+    const [setGameNcaab] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nhlShow(user)
+        ncaabGame(user)
             .then((res) => {
-                setNhl(
+                setGameNcaab(
                     res.data.results
                 )
-                console.log(res.data.results)
             })
             .catch((error) => {
                 msgAlert({
@@ -74,22 +58,6 @@ const NhlShow = (props) => {
             })
     }, [])
 
-    if (!nhl) {
-        return (
-            <>
-                <div style={backgroundCSS}>
-                    <Container style={findingResult}>
-                        <p>Finding conferences</p>
-                        <p>
-                            <Spinner animation='border' style={spinnerCSS}>
-                            </Spinner>
-                        </p>
-                    </Container>
-                </div>
-            </>
-        )
-    }
-
     return (
         <>
             <div style={backgroundCSS}>
@@ -98,21 +66,20 @@ const NhlShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{nhl.conference}</h4>
+                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nhl.map((result) => (
+                                        {ncaabGame.map((result) => (
                                             <div>
-                                                <small><span style={boldText}>Conference:</span> {result.conference}</small>
-                                                <small><span style={boldText}>Division:</span> {result.division}</small>
-                                                <small><span style={boldText}>League:</span> {result.league}</small>
+                                                <small><span style={boldText}>Summary:</span> {result.summary}</small>
+                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
+                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
                                             </div>
                                         ))}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            <NhlGameShow/>
                         </Col>
                     </Row>
                 </Container>
@@ -121,4 +88,4 @@ const NhlShow = (props) => {
     )
 }
 
-export default NhlShow
+export default NcaabGameShow

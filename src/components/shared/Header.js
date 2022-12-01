@@ -24,6 +24,11 @@ const authenticatedOptions = (
 			<Link to="ncaaf">NCAAF</Link>
 			<Link to="ncaab">NCAAB</Link>
 		</NavDropdown>
+		<Nav.Item className='ms-4'>
+			<Link to='my-profile' style={linkStyle}>
+				Saved games
+			</Link>
+		</Nav.Item>
 		<div style={navStyle}>
 		<Nav.Item className='ms-4'>
 			<Link to='change-password' style={linkStyle}>

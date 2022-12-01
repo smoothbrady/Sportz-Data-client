@@ -3,6 +3,7 @@ import { Card, Col, Container } from "react-bootstrap"
 import { ncaafShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
+import NcaafGameShow from "../game/NcaafGameShow"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -111,6 +112,7 @@ const NcaafShow = (props) => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+                            <NcaafGameShow/>
                         </Col>
                     </Row>
                 </Container>

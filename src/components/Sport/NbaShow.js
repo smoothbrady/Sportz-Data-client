@@ -3,6 +3,7 @@ import { Card, Col, Container } from "react-bootstrap"
 import { nbaShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
 import Spinner from "react-bootstrap/Spinner"
+import NbaGameShow from "../game/NbaGameShow"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -71,7 +72,7 @@ const NbaShow = (props) => {
                     variant: 'danger'
                 })
             })
-    }, [])
+    })
 
     if (!nba) {
         return (
@@ -111,6 +112,7 @@ const NbaShow = (props) => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+                            <NbaGameShow/>
                         </Col>
                     </Row>
                 </Container>
