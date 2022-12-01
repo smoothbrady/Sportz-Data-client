@@ -85,7 +85,7 @@ export const teamUpdate = (data, user, id) => {
 export const teamDelete = (user, id) => {
     return axios({
         method: 'DELETE',
-        url: apirUrl + '/teams/' + id,
+        url: apiUrl + '/teams/' + id,
         headers: {
             Authorization: `Token token=${user.token}`
         }
