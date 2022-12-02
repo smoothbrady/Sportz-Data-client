@@ -25,7 +25,7 @@ const cardCSS = {
 }
 
 const col1Style = {
-    paddingLeft: '5rem'
+    paddingLeft: '0rem'
 }
 
 const cardHeader = {
@@ -48,7 +48,7 @@ const findingResult = {
 }
 
 const spinnerCSS = {
-    marginLeft: '15%',
+    marginLeft: '0%',
 }
 
 
@@ -97,7 +97,8 @@ const NflShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
+                                    <h5 class="card-title">NFL Conference and Divisions</h5>
+                                    <h4 style={boldText}>{nfl.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>

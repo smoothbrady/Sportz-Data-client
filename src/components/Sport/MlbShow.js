@@ -98,6 +98,7 @@ const MlbShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
+                                <h5 class="card-title">MLB Conference and Divisions</h5>
                                     <h4 style={boldText}>{mlb.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>

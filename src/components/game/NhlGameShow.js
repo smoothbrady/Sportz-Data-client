@@ -66,7 +66,8 @@ const NhlGameShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
+                                <h5 class="card-title">Upcoming Matchups</h5>
+                                    <h4 style={boldText}>{nhlGame.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>

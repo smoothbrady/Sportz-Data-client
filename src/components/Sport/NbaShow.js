@@ -98,6 +98,7 @@ const NbaShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
+                                <h5 class="card-title">NBA Conference and Divisions</h5>
                                     <h4 style={boldText}>{nba.conference}</h4>
                                 </Card.Header>
                                 <Card.Body>
