@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { Card, Col, Container } from "react-bootstrap"
+import { Button, Card, Col, Container } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
 import { mlbGame } from "../../api/game"
+import { addToBookmarks } from "../../api/profile"
+import { FiBookmark } from "react-icons/fi"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -40,7 +42,7 @@ const boldText = {
 
 const MlbGameShow = (props) => {
 
-    const [setGameMlb] = useState(null)
+    const [mlbGames, setGameMlb] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
@@ -67,17 +69,16 @@ const MlbGameShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                <h5 class="card-title">Upcoming Matchups</h5>
-                                    <h4 style={boldText}>{mlbGame.conference}</h4>
+                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {mlbGame.map((result) => (
+                                        {mlbGames.map((result) => (
                                             <div>
-                                                <small><span style={boldText}>Summary:</span> {result.summary}</small>
-                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
-                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
-                                            </div>
+                                            <small><span style={boldText}>Summary:</span> {result.summary}</small>
+                                            <small><span style={boldText}>Score:</span> {result.schedule.date}</small>
+                                            <small><span style={boldText}>Odds:</span> {result.odds[0].spread.current.awayOdds}</small>
+                                        </div>
                                         ))}
                                     </Card.Text>
                                 </Card.Body>

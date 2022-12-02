@@ -7,15 +7,12 @@ const ProfileGameShow = (props) => {
 
     const [game, setGame] = useState(null)
     const {user, msgAlert, gameId} = props
-    const [sport, setSport] = useState(null)
+    // const [sport, setSport] = useState(null)
     useEffect(() => {
         localGameShow(user, gameId)
             .then((res) => {
                 setGame(
                     res.data.results
-                )
-                setSport(
-                    
                 )
             })
             .catch((error) => {

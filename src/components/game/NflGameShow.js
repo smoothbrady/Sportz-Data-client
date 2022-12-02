@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { Card, Col, Container } from "react-bootstrap"
+import { Button, Card, Col, Container } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
 import { nflGame } from "../../api/game"
+import NewPredictionModal from "../predictions/NewPredictionModal"
+import ShowPrediction from "../predictions/ShowPrediction"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -38,10 +40,12 @@ const boldText = {
     fontWeight: 'bold'
 }
 
+
 const NflGameShow = (props) => {
 
     const [nflGames, setGameNfl] = useState([])
     const {user, msgAlert} = props
+    const [predictionModalShow, setPredictionModalShow] = useState(false)
 
     useEffect(() => {
         nflGame(user)
@@ -81,11 +85,24 @@ const NflGameShow = (props) => {
                                             </div>
                                         ))}
                                     </Card.Text>
+                                    <Card.Footer>
+                                        <Button onClick={() => setPredictionModalShow(true)}
+                                            className='m-2' variant='info'
+                                        >
+                                            Leave a Prediction!
+                                        </Button>
+                                    </Card.Footer>
                                 </Card.Body>
                             </Card>
                         </Col>
                     </Row>
                 </Container>
+                <NewPredictionModal
+                    user={user}
+                    show={predictionModalShow}
+                    msg={msgAlert}
+                    handleClose={() => setPredictionModalShow(false)}
+                />
             </div>
         </>
     )
