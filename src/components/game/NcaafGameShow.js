@@ -39,7 +39,7 @@ const boldText = {
 
 const NcaafGameShow = (props) => {
 
-    const [setGameNcaaf] = useState(null)
+    const [ncaafGames, setGameNcaaf] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
@@ -50,11 +50,11 @@ const NcaafGameShow = (props) => {
                 )
             })
             .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
+                // msgAlert({
+                //     heading: 'Failure',
+                //     message: 'Failure to show conferences ' + error,
+                //     variant: 'danger'
+                // })
             })
     }, [])
 
@@ -70,22 +70,22 @@ const NcaafGameShow = (props) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {ncaafGame.map((result) => (
-                                            <div>
-                                                <small><span style={boldText}>Summary:</span> {result.summary}</small>
-                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
-                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
-                                            </div>
-                                        ))}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-        </>
-    )
+                                        {ncaafGames.map((result) => (
+                                          <div>
+                                          <small><span style={boldText}>Summary:</span> {result.summary}</small>
+                                          <small><span style={boldText}>Score:</span> {result.schedule.date}</small>
+                                          <small><span style={boldText}>Odds:</span> {result.odds[0].spread.current.awayOdds}</small>
+                                      </div>
+                                  ))}
+                              </Card.Text>
+                          </Card.Body>
+                      </Card>
+                  </Col>
+              </Row>
+          </Container>
+      </div>
+  </>
+)
 }
 
 export default NcaafGameShow

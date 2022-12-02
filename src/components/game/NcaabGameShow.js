@@ -39,22 +39,23 @@ const boldText = {
 
 const NcaabGameShow = (props) => {
 
-    const [setGameNcaab] = useState(null)
+    const [ncaabGames, setGameNcaab] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
         ncaabGame(user)
             .then((res) => {
+                console.log(res.data.results)
                 setGameNcaab(
                     res.data.results
                 )
             })
             .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
+                // msgAlert({
+                //     heading: 'Failure',
+                //     message: 'Failure to show conferences ' + error,
+                //     variant: 'danger'
+                // })
             })
     }, [])
 
@@ -70,11 +71,11 @@ const NcaabGameShow = (props) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {ncaabGame.map((result) => (
+                                        {ncaabGames.map((result) => (
                                             <div>
                                                 <small><span style={boldText}>Summary:</span> {result.summary}</small>
-                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
-                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
+                                                <small><span style={boldText}>Score:</span> {result.schedule.date}</small>
+                                                <small><span style={boldText}>status:</span> {result.status}</small>
                                             </div>
                                         ))}
                                     </Card.Text>
