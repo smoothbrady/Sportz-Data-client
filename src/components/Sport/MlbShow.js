@@ -109,13 +109,17 @@ const MlbShow = (props) => {
                                                 <small><span style={boldText}>League:</span> {result.league}</small>
                                             </div>
                                         ))}
-                                        <MlbGameShow/>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
                         </Col>
                     </Row>
                 </Container>
+            </div>
+            <div>
+                <Card>
+                    <MlbGameShow/>
+                </Card>
             </div>
         </>
     )

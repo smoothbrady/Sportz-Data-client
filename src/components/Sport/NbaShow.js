@@ -112,10 +112,14 @@ const NbaShow = (props) => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            <NbaGameShow/>
                         </Col>
                     </Row>
                 </Container>
+            </div>
+            <div>
+                <Card>
+                    <NbaGameShow/>
+                </Card>
             </div>
         </>
     )

@@ -39,7 +39,7 @@ const boldText = {
 
 const MlbGameShow = (props) => {
 
-    const [setGameMlb] = useState(null)
+    const [mlbGames, setGameMlb] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
@@ -70,12 +70,12 @@ const MlbGameShow = (props) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {mlbGame.map((result) => (
+                                        {mlbGames.map((result) => (
                                             <div>
-                                                <small><span style={boldText}>Summary:</span> {result.summary}</small>
-                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
-                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
-                                            </div>
+                                            <small><span style={boldText}>Summary:</span> {result.summary}</small>
+                                            <small><span style={boldText}>Score:</span> {result.schedule.date}</small>
+                                            <small><span style={boldText}>Odds:</span> {result.odds[0].spread.current.awayOdds}</small>
+                                        </div>
                                         ))}
                                     </Card.Text>
                                 </Card.Body>

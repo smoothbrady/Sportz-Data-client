@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
 import { nflShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
-import Spinner from "react-bootstrap/Spinner"
 import NflGameShow from "../game/NflGameShow"
 
 const backgroundCSS = {

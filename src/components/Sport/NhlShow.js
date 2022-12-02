@@ -112,10 +112,14 @@ const NhlShow = (props) => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            <NhlGameShow/>
                         </Col>
                     </Row>
                 </Container>
+            </div>
+            <div>
+                <Card>
+                    <NhlGameShow/>
+                </Card>
             </div>
         </>
     )
