@@ -24,7 +24,8 @@ const cardCSS = {
 }
 
 const col1Style = {
-    paddingLeft: '5rem'
+    paddingBottom: "50rem",
+    paddingLeft: '35rem'
 }
 
 const cardHeader = {
