@@ -3,7 +3,7 @@ import { Button, Card, Col, Container } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
 import { mlbGame } from "../../api/game"
 import { addToBookmarks } from "../../api/profile"
-import { FiBookmark } from "react-icons/fi"
+
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
