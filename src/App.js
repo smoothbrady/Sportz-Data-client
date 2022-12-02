@@ -23,7 +23,7 @@ import NbaTeam from './components/Team/NbaTeam'
 import MlbTeam from './components/Team/MlbTeam'
 import NhlTeam from './components/Team/NhlTeam'
 import NcaafTeam from './components/Team/NcaafTeam'
-import MyProfile from './components/profile/MyProfile'
+import NcaabTeam from './components/Team/NcaabTeam'
 
 const App = () => {
 
@@ -151,7 +151,7 @@ const App = () => {
 						</RequireAuth>}
 				/>
 								<Route
-					path='/ncaaf/teams'
+					path='/ncaab/teams'
 					element={
 						
 							<NcaafTeam msgAlert={msgAlert} user={user} />
@@ -163,12 +163,6 @@ const App = () => {
 						<RequireAuth user={user}>
 							<NcaabShow msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
-				/>
-				<Route
-					path='/my-profile'
-					element={
-							<MyProfile msgAlert={msgAlert} user={user} />
-						}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (

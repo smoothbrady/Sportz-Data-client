@@ -60,7 +60,6 @@ export const ncaabTeam = (user) => {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
-<<<<<<< HEAD
 }
 
 export const localTeamShow = (user, apiId) => {
@@ -91,6 +90,4 @@ export const teamDelete = (user, id) => {
             Authorization: `Token token=${user.token}`
         }
     })
-=======
->>>>>>> 32136caedd6a69456b0be03b6ef61e3f77430930
 }

@@ -62,14 +62,13 @@ const NcaafShow = (props) => {
                 setNcaaf(
                     res.data.results
                 )
-                console.log(res.data.results)
             })
             .catch((error) => {
-            //     msgAlert({
-            //         heading: 'Failure',
-            //         message: 'Failure to show conferences ' + error,
-            //         variant: 'danger'
-            //     })
+                // msgAlert({
+                //     heading: 'Failure',
+                //     message: 'Failure to show conferences ' + error,
+                //     variant: 'danger'
+                // })
             })
     }, [])
 
@@ -97,7 +96,7 @@ const NcaafShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{ncaaf.conference}</h4>
+                                    {/* <h4 style={boldText}>{ncaaf.conference}</h4> */}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>

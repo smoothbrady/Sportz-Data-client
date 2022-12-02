@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
 import { ncaabShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
-import Spinner from "react-bootstrap/Spinner"
 import NcaabGameShow from "../game/NcaabGameShow"
 
 const backgroundCSS = {
@@ -54,41 +53,41 @@ const spinnerCSS = {
 
 const NcaabShow = (props) => {
 
-    const [ncaab, setNcaab] = useState(null)
+    const [ncaab, setNcaab] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
         ncaabShow(user)
             .then((res) => {
+                console.log(res.data.results)
                 setNcaab(
                     res.data.results
                 )
-                console.log(res.data.results)
             })
             .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
+                // msgAlert({
+                //     heading: 'Failure',
+                //     message: 'Failure to show conferences ' + error,
+                //     variant: 'danger'
+                // })
             })
     }, [])
 
-    if (!ncaab) {
-        return (
-            <>
-                <div style={backgroundCSS}>
-                    <Container style={findingResult}>
-                        <p>Finding conferences</p>
-                        <p>
-                            <Spinner animation='border' style={spinnerCSS}>
-                            </Spinner>
-                        </p>
-                    </Container>
-                </div>
-            </>
-        )
-    }
+    // if (!ncaab) {
+    //     return (
+    //         <>
+    //             <div style={backgroundCSS}>
+    //                 <Container style={findingResult}>
+    //                     <p>Finding conferences</p>
+    //                     <p>
+    //                         <Spinner animation='border' style={spinnerCSS}>
+    //                         </Spinner>
+    //                     </p>
+    //                 </Container>
+    //             </div>
+    //         </>
+    //     )
+    // }
 
     return (
         <>
@@ -98,7 +97,7 @@ const NcaabShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{ncaab.conference}</h4>
+                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
@@ -112,10 +111,14 @@ const NcaabShow = (props) => {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            <NcaabGameShow/>
                         </Col>
                     </Row>
                 </Container>
+            </div>
+            <div>
+                <Card>
+                    <NcaabGameShow/>
+                </Card>
             </div>
         </>
     )
