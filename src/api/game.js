@@ -1,79 +1,77 @@
-import axios from "axios"
 import apiUrl from "../apiConfig"
+import axios from "axios"
 
-export const nflTeam = (user) => {
-    console.log(user)
+export const nbaGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/nfl/teams',
+        url: apiUrl + '/nba/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
 }
 
-export const nbaTeam = (user) => {
+export const nflGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/nba/teams',
+        url: apiUrl + '/nfl/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
 }
 
-export const mlbTeam= (user) => {
+export const mlbGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/mlb/teams',
+        url: apiUrl + '/mlb/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
 }
 
-export const nhlTeam = (user) => {
+export const nhlGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/nhl/teams',
+        url: apiUrl + '/nhl/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
 }
 
-export const ncaafTeam= (user) => {
+export const ncaafGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/ncaaf/teams',
+        url: apiUrl + '/ncaaf/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
 }
 
-export const ncaabTeam = (user) => {
+export const ncaabGame = (user) => {
     return axios ({
         method: 'GET', 
-        url: apiUrl + '/ncaab/teams',
+        url: apiUrl + '/ncaab/games',
         // headers: {
         //     Authorization: `Token token=${user.token}`,
         // },
     })
-<<<<<<< HEAD
 }
 
-export const localTeamShow = (user, apiId) => {
+export const localGameShow = (user, gameId) => {
     return axios({
         method: 'GET',
-        url: apiUrl + '/teams/bookmarks' + apiId
+        url: apiUrl + '/teams/bookmarks' + gameId
     })
 }
 
-export const teamUpdate = (data, user, id) => {
+export const gameUpdate = (data, user, gameId) => {
     return axios({
         method: 'PATCH',
-        url: apiUrl + '/teams/bookmark' + id,
+        url: apiUrl + '/teams/addToBookmarks' + gameId,
         data: {
             game: data,
         },
@@ -83,14 +81,12 @@ export const teamUpdate = (data, user, id) => {
     })
 }
 
-export const teamDelete = (user, id) => {
+export const gameDelete = (user, gameId) => {
     return axios({
         method: 'DELETE',
-        url: apiUrl + '/teams/' + id,
+        url: apiUrl + '/teams/' + gameId,
         headers: {
             Authorization: `Token token=${user.token}`
         }
     })
-=======
->>>>>>> 32136caedd6a69456b0be03b6ef61e3f77430930
 }

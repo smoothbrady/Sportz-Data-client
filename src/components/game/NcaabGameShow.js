@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Container } from "react-bootstrap"
-import { nflShow } from "../../api/sport"
 import Row from "react-bootstrap/Row"
-import Spinner from "react-bootstrap/Spinner"
-import NflGameShow from "../game/NflGameShow"
+import { ncaabGame } from "../../api/game"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -14,6 +12,7 @@ const backgroundCSS = {
 }
 
 const cardCSS = {
+    marginLeft: '80px',
     marginTop: '20px',
     marginBottom: '20px',
     width: '40rem',
@@ -38,56 +37,26 @@ const boldText = {
     fontWeight: 'bold'
 }
 
-const findingResult = {
-    display: 'flex',
-    justifyContent: 'center',
-    fontWeight: 'bold',
-    marginTop: '30%',
-    fontSize: '200%',
-    color: 'rgb(241, 50, 50)'
-}
+const NcaabGameShow = (props) => {
 
-const spinnerCSS = {
-    marginLeft: '15%',
-}
-
-
-const NflShow = (props) => {
-
-    const [nfl, setNfl] = useState([])
+    const [setGameNcaab] = useState(null)
     const {user, msgAlert} = props
 
     useEffect(() => {
-        nflShow(user)
+        ncaabGame(user)
             .then((res) => {
-                setNfl(
+                setGameNcaab(
                     res.data.results
                 )
             })
             .catch((error) => {
-                // msgAlert({
-                //     heading: 'Failure',
-                //     message: 'Failure to show conferences ' + error,
-                //     variant: 'danger'
-                // })
+                msgAlert({
+                    heading: 'Failure',
+                    message: 'Failure to show conferences ' + error,
+                    variant: 'danger'
+                })
             })
     }, [])
-
-    // if (!nfl) {
-    //     return (
-    //         <>
-    //             <div style={backgroundCSS}>
-    //                 <Container style={findingResult}>
-    //                     <p>Finding conferences</p>
-    //                     <p>
-    //                         <Spinner animation='border' style={spinnerCSS}>
-    //                         </Spinner>
-    //                     </p>
-    //                 </Container>
-    //             </div>
-    //         </>
-    //     )
-    // }
 
     return (
         <>
@@ -101,11 +70,11 @@ const NflShow = (props) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nfl.map((result) => (
+                                        {ncaabGame.map((result) => (
                                             <div>
-                                                <small><span style={boldText}>Conference:</span> {result.conference}</small>
-                                                <small><span style={boldText}>Division:</span> {result.division}</small>
-                                                <small><span style={boldText}>League:</span> {result.league}</small>
+                                                <small><span style={boldText}>Summary:</span> {result.summary}</small>
+                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
+                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
                                             </div>
                                         ))}
                                     </Card.Text>
@@ -115,13 +84,8 @@ const NflShow = (props) => {
                     </Row>
                 </Container>
             </div>
-            <div>
-                <Card>
-                    <NflGameShow/>
-                </Card>
-            </div>
         </>
     )
 }
 
-export default NflShow
+export default NcaabGameShow
