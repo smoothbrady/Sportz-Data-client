@@ -39,24 +39,25 @@ const boldText = {
 
 const NflGameShow = (props) => {
 
-    const [setGameNfl] = useState(null)
+    const [nflGames, setGameNfl] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
         nflGame(user)
             .then((res) => {
+                console.log(res.data.results)
                 setGameNfl(
                     res.data.results
                 )
             })
             .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
+            //     msgAlert({
+            //         heading: 'Failure',
+            //         message: 'Failure to show conferences ' + error,
+            //         variant: 'danger'
+            //     })
             })
-    })
+    }, [])
 
     return (
         <>
@@ -70,11 +71,11 @@ const NflGameShow = (props) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
-                                        {nflGame.map((result) => (
+                                        {nflGames.map((result) => (
                                             <div>
                                                 <small><span style={boldText}>Summary:</span> {result.summary}</small>
-                                                <small><span style={boldText}>Score:</span> {result.scoreboard}</small>
-                                                <small><span style={boldText}>Odds:</span> {result.odds}</small>
+                                                <small><span style={boldText}>Score:</span> {result.schedule.date}</small>
+                                                <small><span style={boldText}>Odds:</span> {result.odds[0].spread.current.awayOdds}</small>
                                             </div>
                                         ))}
                                     </Card.Text>

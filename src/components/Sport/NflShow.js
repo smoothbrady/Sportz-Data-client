@@ -54,7 +54,7 @@ const spinnerCSS = {
 
 const NflShow = (props) => {
 
-    const [nfl, setNfl] = useState(null)
+    const [nfl, setNfl] = useState([])
     const {user, msgAlert} = props
 
     useEffect(() => {
@@ -65,29 +65,29 @@ const NflShow = (props) => {
                 )
             })
             .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
+                // msgAlert({
+                //     heading: 'Failure',
+                //     message: 'Failure to show conferences ' + error,
+                //     variant: 'danger'
+                // })
             })
     }, [])
 
-    if (!nfl) {
-        return (
-            <>
-                <div style={backgroundCSS}>
-                    <Container style={findingResult}>
-                        <p>Finding conferences</p>
-                        <p>
-                            <Spinner animation='border' style={spinnerCSS}>
-                            </Spinner>
-                        </p>
-                    </Container>
-                </div>
-            </>
-        )
-    }
+    // if (!nfl) {
+    //     return (
+    //         <>
+    //             <div style={backgroundCSS}>
+    //                 <Container style={findingResult}>
+    //                     <p>Finding conferences</p>
+    //                     <p>
+    //                         <Spinner animation='border' style={spinnerCSS}>
+    //                         </Spinner>
+    //                     </p>
+    //                 </Container>
+    //             </div>
+    //         </>
+    //     )
+    // }
 
     return (
         <>
@@ -97,7 +97,7 @@ const NflShow = (props) => {
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
                                 <Card.Header style={cardHeader}>
-                                    <h4 style={boldText}>{nfl.conference}</h4>
+                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
@@ -114,6 +114,8 @@ const NflShow = (props) => {
                         </Col>
                     </Row>
                 </Container>
+            </div>
+            <div>
                 <Card>
                     <NflGameShow/>
                 </Card>

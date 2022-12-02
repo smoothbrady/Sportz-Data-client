@@ -13,13 +13,10 @@ export const myProfile = (user) => {
 }
 
 // add team to bookmarks
-export const addToBookmarks = (user, data, teamId) => {
+export const addToBookmarks = (user, gameId, sport) => {
     return axios({
         method: 'PATCH',
-        url: apiUrl + '/teams/mybookmarks/' + teamId,
-        data: {
-            team: data,
-        },
+        url: apiUrl + `/${sport}/games/mybookmarks/` + gameId,
         headers: {
             Authorization: `Token token=${user.token}`,
         },
@@ -27,10 +24,10 @@ export const addToBookmarks = (user, data, teamId) => {
 }
 
 // remove team from bookmarks
-export const removeFromBookmarks = (user, teamId) => {
+export const removeFromBookmarks = (user, gameId) => {
     return axios({
         method: 'PATCH',
-        url: apiUrl + '/teams/mybookmarks/remove/' + teamId,
+        url: apiUrl + '/teams/mybookmarks/remove/' + gameId,
         headers: {
             Authorization: `Token token=${user.token}`,
         },
