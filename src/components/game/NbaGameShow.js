@@ -49,13 +49,13 @@ const NbaGameShow = (props) => {
                     res.data.results
                 )
             })
-            .catch((error) => {
-                msgAlert({
-                    heading: 'Failure',
-                    message: 'Failure to show conferences ' + error,
-                    variant: 'danger'
-                })
-            })
+            // .catch((error) => {
+            //     msgAlert({
+            //         heading: 'Failure',
+            //         message: 'Failure to show conferences ' + error,
+            //         variant: 'danger'
+            //     })
+            // })
     }, [])
 
     return (

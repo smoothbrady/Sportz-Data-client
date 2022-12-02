@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { Card, Col, Container } from "react-bootstrap"
+import { Button, Card, Col, Container } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
 import { mlbGame } from "../../api/game"
+import { addToBookmarks } from "../../api/profile"
+import { FiBookmark } from "react-icons/fi"
 
 const backgroundCSS = {
     backgroundColor: 'rgb(212, 212, 212)',
@@ -65,9 +67,6 @@ const MlbGameShow = (props) => {
                     <Row>
                         <Col style={col1Style}>
                             <Card style={cardCSS}>
-                                <Card.Header style={cardHeader}>
-                                    {/* <h4 style={boldText}>{nfl.conference}</h4> */}
-                                </Card.Header>
                                 <Card.Body>
                                     <Card.Text>
                                         {mlbGames.map((result) => (
